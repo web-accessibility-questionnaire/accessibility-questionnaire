@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accessibility Analyser</title> <!-- webpage title-->
+<link rel="stylesheet" href="Styles.css">  <!-- link to CSS file for styling the page --> 
+<script src="AccessibilityQuestionnaire.js" defer></script> <!-- JavaScript code used on the page -->
+</head>
+<body>
+
+  <nav class="navbar"> <!--Nav bar-->
+    <br>
+    <ul class="navbar-list"> <!--Unordered list for navigation links-->
+      <li><a href="index.html" class="guide-button">Guide</a></li> <!--Navigation link-->
+      <li><a href="AccessibilityQuestionnaire.html" class="accessibility-button">Accessibility Questions</a></li> <!--Navigation link-->
+    </ul>
+  </nav>
+ <br><br>
+
+  <div class="ethical-considerations-section"> <!-- Section for ethical considerations -->
+    <div class="container"> <!-- Container for ethical considerations -->
+      <div class="precaution">  <!-- Precaution section -->
+        <p>Please review the information provided below before completing the questionnaire:</p>
+      </div>
+      <br>
+      <div class="purpose-of-questionnaire section"> <!--secction explaining purpose of tool-->
+        <h2>Purpose of This Tool</h2> <!--subheading-->
+        <p>The purpose of this questionnaire is to assist website owners in improving website accessibility for users with low vision by providing valuable recommendations that they can implement. <br><br> The questionnaire evaluates various aspects of website accessibility specifcally related to the viusally impaired demographic including but not limited to tracking, functionality of assistive technologies, brightness and color. This is in line with the accessibility standards set by the World Wide Web Consortium <a href="https://www.w3.org/TR/low-vision-needs/#brightness-and-color">[W3C] (2016).</a></p>
+
+        <h2>Participation & Privacy</h2>
+        <p>Your participation in this survey is voluntary and you cannot withdraw your responses once submitted.<br>Please note that your answers will be securely transmitted to a backend API through a form submission process.<br><br>Rest assured that your responses are confidential. No personally identifiable information will be collected and your privacy is of utmost importance. Your answers will solely be used for research purposes and will be securely stored on encrypted devices protected by passwords to minimise the risk of unauthorized access. Your participation is greatly appreciated and your contribution is invaluable to the research.<br><br>If you have any questions or concerns about the study or your participation, please feel free to contact myself at contact.accessibility.researcher@gmail.com.</p>
+      </div>
+  </div>
+  
+  <br><br>
+
+<div class="container">
+    <h2>Website Accessibility Analyser for Users with Low Vision</h2> 
+    <br> 
+    <form id="questionForm" action="https://formspree.io/f/xzbnynbz" method="POST">
+      <div class="question-group">
+        <label for="consentCheckbox"><strong> I have read and understood the above information and I consent to participate in this research</strong></label> 
+        <input type="checkbox" id="consentCheckbox" required> <!--checkbox for consent-->
+      </div>
+      <div class="question-group">
+        <label for="websiteLink">Please enter the Link of the Website you are Reviewing:</label>
+        <input type="url" id="websiteLink" name="websiteLink" required>
+      </div>
+
+    <div class="question-group">
+      <h3>Category: Brightness & Colour</h3>
+      <div class="question">
+        <p>Q1) Can users adjust the overall brightness of the display?</p> <br>
+        <label><input type="radio" name="Q1" value="yes" required> Yes</label>
+        <label><input type="radio" name="Q1" value="no" required> No</label>
+      </div>
+      <div class="question">
+        <p>Q2) Does the change in brightness accommodate preferences?</p> <br>
+        <label><input type="radio" name="Q2" value="yes" required> Yes</label>
+        <label><input type="radio" name="Q2" value="no" required> No</label>
+      </div>
+      <div class="question">
+        <p>Q3) Does the website provide alternative options to colour such as a black background option in addition to a white background?</p> <br>
+        <label><input type="radio" name="Q3" value="yes" required> Yes</label>
+        <label><input type="radio" name="Q3" value="no" required> No</label>
+      </div>
+    </div>
+    
+    <div class="question-group">
+      <h3>Category: Tracking</h3>
+      <p><strong>Tracking simply means following lines of text, including transitioning from the end of one line to the beginning of the next.</strong></p>
+      <div class="question">
+        <p>Q4) Can users read text comfortably without having to scroll back and forth horizontally?</p> <br>
+        <label><input type="radio" name="Q4" value="yes" required> Yes</label>
+        <label><input type="radio" name="Q4" value="no" required> No</label>
+      </div>
+      <div class="question">
+        <p>Q5) Are users able to view text in a single continuous block?</p> <br>
+        <label><input type="radio" name="Q5" value="yes" required> Yes</label>
+        <label><input type="radio" name="Q5" value="no" required> No</label>
+      </div>
+      <div class="question">
+        <p>Q6) Does the website provide the option for users to turn hyphenation on or off based on their preferences? Hyphenation is the act of joining two words using a hyphen such as “check-in”.</p> <br>
+        <label><input type="radio" name="Q6" value="yes" required> Yes</label>
+        <label><input type="radio" name="Q6" value="no" required> No</label>
+      </div>
+    </div>
+
+    <div class="question-group">
+      <h3>Category: Perceiving</h3>
+      <div class="question">
+        <p>Q7) Can users change the font size of all text without zooming the entire interface?</p> <br>
+        <label><input type="radio" name="Q7" value="yes" required> Yes</label>
+        <label><input type="radio" name="Q7" value="no" required> No</label>
+      </div>
+      <div class="question">
+        <p>Q8) Can users choose from a variety of fonts, including serif and sans serif options?</p> <br>
+        <label><input type="radio" name="Q8" value="yes" required> Yes</label>
+        <label><input type="radio" name="Q8" value="no" required> No</label>
+      </div>
+      <div class="question">
+        <p>Q9) Are users provided an option to change the size of all interface elements to accommodate their perception needs?</p> <br>
+        <label><input type="radio" name="Q9" value="yes" required> Yes</label>
+        <label><input type="radio" name="Q9" value="no" required> No</label>
+      </div>
+    </div>
+
+    <div class="question-group">
+      <h3>Category: Point of Regard and Proximity</h3>
+      <p><strong>The point of regard is the area that the user is viewing. Proximity is the space between items. In user interface generally, proximity is about using space to group related content and separate unrelated content.</strong></p>
+      <div class="question">
+        <p>Q10) Does the website ensure that your current reading position remains visible even after making adjustments like enlarging text or altering page formatting?</p> <br>
+        <label><input type="radio" name="Q10" value="yes" required> Yes</label>
+        <label><input type="radio" name="Q10" value="no" required> No</label>
+      </div>
+      <div class="question">
+        <p>Q11) Are related information such as labels and controls kept in close proximity?</p> <br>
+        <label><input type="radio" name="Q11" value="yes" required> Yes</label>
+        <label><input type="radio" name="Q11" value="no" required> No</label>
+      </div>
+    </div>
+
+    <div class="question-group">
+      <h3>Category: Work with User Settings</h3>
+      <div class="question">
+        <p>Q12) Does the website adjust to and display all relevant settings you've chosen on your computer or web browser? <br><br>For example, if you have adjusted your computer or browser settings for accessibility like text size or contrast, does the website adapt accordingly?"</p> <br>
+        <label><input type="radio" name="Q12" value="yes" required> Yes</label>
+        <label><input type="radio" name="Q12" value="no" required> No</label>
+      </div>
+    </div>
+
+    <div class="question-group">
+      <h3>Category: Compatibility with Assistive Technologies</h3>
+      <p><strong>Please note: Assistive technologies were not discussed in the WCAG guidelines, therefore, realising its importance I have integrated these questions within the questionnaire:</strong></p> 
+      <div class="question">
+        <p>Q13) Can users effectively navigate and understand the content of the website using a screen reader?</p>
+        <p>A screen reader is an assistive technology, primarily used by people with vision impairments. It converts text, buttons, images and other screen elements into speech or braille.</p> <br>
+        <label><input type="radio" name="Q13" value="yes" required> Yes</label>
+        <label><input type="radio" name="Q13" value="no" required> No</label>
+      </div>
+      <div class="question">
+        <p>Q14) Can users easily navigate through this website using keyboard controls only, without relying on a mouse?</p> <br>
+        <label><input type="radio" name="Q14" value="yes" required> Yes</label>
+        <label><input type="radio" name="Q14" value="no" required> No</label>
+      </div>
+      <div class="question">
+        <p>Q15) Does the website offer text-to-speech functionality?</p> <br>
+        <label><input type="radio" name="Q15" value="yes" required> Yes</label>
+        <label><input type="radio" name="Q15" value="no" required> No</label>
+      </div>
+    </div>
+    
+    <button id="submitButton" type="submit">Submit</button>
+  </form>
+  <br><br>
+
+   <div id="result" class="result-section">
+        <div class="result-item">
+            <h4>Accessibility Score:</h4>
+            <p id="scoreValue">--</p>
+        </div>
+        <div class="result-item">
+            <h4>Accessibility Category:</h4>
+            <p id="categoryValue">--</p>
+        </div>
+        <br>
+    </div>
+
+    <div id="recommendations" class="recommendations-section">
+      <h4>Recommendations:</h4>
+      <div class="category-heading">Brightness & Colour</div>
+      <ul id="brightnessRecommendations"></ul>
+      
+      <div class="category-heading">Tracking</div>
+      <ul id="trackingRecommendations"></ul>
+      
+      <div class="category-heading">Perceiving</div>
+      <ul id="perceivingRecommendations"></ul>
+      
+      <div class="category-heading">Point of Regard and Proximity</div>
+      <ul id="pointOfRegardRecommendations"></ul>
+      
+      <div class="category-heading">Work with User Settings</div>
+      <ul id="userSettingsRecommendations"></ul>
+      
+      <div class="category-heading">Compatibility with Assistive Technologies</div>
+      <ul id="assistiveTechRecommendations"></ul>
+    </div>
+
+    <form id="sendResultsForm" action="https://formspree.io/f/xzbnynbz" method="POST"> <!--form for sending results with POST method-->
+      <input type="hidden" id="result" name="result"> <!--hidden input field for accessibility score.-->
+      <input type="hidden" id="recommendations" name="recommendations"> <!--hidden input field for recommendations-->
+      <button type="button" id="sendResultsButton">Send Results</button> <!--button to send results.-->
+    </form>
+
+
+
+</body>
+
+</html>
+

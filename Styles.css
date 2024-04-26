@@ -1,0 +1,259 @@
+/*set font family, margin, padding, and background color for the body */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+}
+ /*styles for container */
+.container {
+  max-width: 800px; /*maximum width fro container*/
+  margin: 0 auto; /*center container horizontally*/
+  padding: 20px; /*padding inside container */
+  background-color: #fff; /*background color of container*/
+  border-radius: 8px; /*rounded corners for container*/
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  /*add a shadow to container*/
+}
+
+/* Styling Nav-Bar */
+.navbar {
+  background-color: #007bff;  /*nav bar background color*/
+  padding: 15px 0;  /*top and bottom padding for navbar*/
+}
+
+.navbar-list {
+  list-style-type: none; /*remove bulet points from list*/
+  margin: 0; /*remove default margins*/
+  padding: 0;  /*remove default paddings*/
+  text-align: center;  /*make all list items in center*/
+}
+
+.navbar-list li {
+  display: inline-block; /*display list items horizontally*/
+  margin-right: 10px;  /*add right margin between list items*/
+}
+
+.navbar-list li a {
+  color: #fff; /*text colour to white*/
+  text-decoration: none; /*remove underline from links*/
+  font-size: 16px;  /*font size for link elements*/
+  padding: 8px 16px;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  transition: all 0.3 ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-list li a:hover {
+  background-color: #000 !important;
+  border-color: #0056b3;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-list li a.guide-button {
+  background-color: #0056b3;
+}
+
+.navbar-list li a.accessibility-button {
+  background-color: #0056b3;
+}
+
+.navbar-list li a.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Center align the title */
+.container h2 {
+  text-align: center; /* center align the heading within the container*/
+  margin-bottom: 20px;  /*space below the heading*/
+}
+
+.precaution {
+  color: red; /*set text colour to red*/
+  font-weight: bold;  /*make the text bold*/
+  font-size: 18px;
+}
+
+/* ethical considerations Section */
+.ethical-considerations-section .container {
+  display: flex;  /*use flexbox layout*/
+  flex-direction: column;   /*stack the content vertically*/
+  align-items: center; /*center elements horizontally*/
+}
+
+.ethical-considerations-section .section {
+  background-color: #f8f9fa; /*background colour set to light grey*/
+  padding: 20px; /*adds some space around the section content*/
+  border: 1px solid #dee2e6; /*adds a thin darker border around the section*/
+  border-radius: 5px;  /*rounds the corners of the section*/
+  margin-bottom: 20px; /*space below each section*/
+}
+
+.ethical-considerations-section h2,
+.ethical-considerations-section h3 {
+  color: #007bff;  /*change the heading and subheading colours to blue*/
+}
+
+.ethical-considerations-section p {
+  margin-bottom: 0;  /*remove bottom margin from paragraphs in this section*/
+}
+
+/* Add a horizontal line after each category */
+.question-group {
+  border-bottom: 2px solid #ccc; /*add bottom border */
+  margin-bottom: 20px;  /*space below question group*/
+  padding-bottom: 20px;  /*adds some space above the next question group*/
+}
+
+/* Website Link Input */
+#websiteLink {
+  width: calc(100% - 20px); /*adjust widht for padding*/
+  padding: 10px;  /*adds some space inside the input field*/
+  margin-top: 10px;  /*put some space above the input field*/
+  font-size: 16px;   /*set font size*/
+  border: 1px solid #ccc;  /*add a thin darker border*/
+  border-radius: 5px; /*round the edges of the input field*/
+  box-sizing: border-box;  /*include padding and border in element's total width and height*/
+}
+
+#websiteLink:focus {
+  outline: none; /*removes the blue outline that appears when you click on an input field*/
+  border-color: #007bff;  /*changes the colour of the border to blue*/
+}
+
+/* Button styles */
+button {
+  display: block; /*make button a block element*/
+  margin: 20px auto;  /*center buttons horizontally*/
+  padding: 10px 20px;  /*add some space inside the button*/
+  background-color: #007bff;   /*set the background colour to blue*/
+  color: #fff; /*set the text colour to white*/
+  border: none;   /*remove any borders around the button*/
+  border-radius: 5px;  /*rounds the corners of the button*/
+  cursor: pointer; /*sets the mouse cursor to a hand icon when hovered over the button*/
+}
+
+button:hover {
+  background-color: #0056b3;   /*change the background colour to darker blue when hovered over*/
+}
+
+/* Styling result items */
+.result-section {
+  margin-top: 20px; /*add some space above the result section*/
+  display: flex;  /*create a container that holds two items side by side (horizontally)*/
+  justify-content: space-between; /* space items evenly */
+}
+
+.result-item {
+  flex: 1; /* equal width for both result items */
+  text-align: center;  /* align text to the center */
+  padding: 10px;  /* add some space inside each item */
+  border-radius: 5px; /* round the corners of each item */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* add box shadow to each item */
+}
+
+.result-item h4 {
+  margin-bottom: 10px;  /* add some space below the heading */
+}
+
+.score-box {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.category-box {
+  background-color: #eaeaea;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+
+
+
+
+/* Recommendation Styles */
+.recommendations-section {
+  margin-top: 20px; /* Add some space above the recommendation section */
+}
+
+.recommendations-section .category-heading {
+  background-color: #007bff;   /* Set the background colour to light blue */
+  color: #fff;   /* Set the text colour to white */
+  padding: 5px 10px;   /* Add some space inside the heading */
+  border-radius: 5px;   /* Round the corners of the heading */
+  margin-bottom: 40px; /* Increased bottom margin to add more space */
+  margin-top: 40px;  /* Add top margin for separation */
+}
+
+.recommendations-section ul {
+  list-style: none;  /* Remove the bullet points from the list */
+  padding-left: 0;    /* Remove any left padding that may be added by default */
+}
+
+.recommendations-section ul li {
+  margin-bottom: 20px; /* Increased bottom margin to add more space */
+}
+
+.recommendations-section ul li strong {
+  color: #007bff;    /* Set the text colour to blue, matches category headings */
+}
+
+/* Styling reecommendation Item */
+.recommendation-item {
+  padding: 15px; /* Increased padding for better spacing */
+  padding-left: 20px; /* Add some left padding to distinguish from the category heading */
+  background-color: #dcdcdc; /* Slightly darker gray background color */
+  border-radius: 5px; /* Rounded corners */
+}
+
+.recommendation-item ~ .recommendation-item {
+  margin-top: 15px; /* Add some top margin to separate each recommendation */
+}
+
+/* Styles for the guide sections */
+.guide-section .container {
+  display: flex;  /*use flexboxc for layout*/
+  flex-direction: column; /*stack items vertically*/
+  align-items: center;  /*center items on the line*/
+}
+
+.guide-section .guide-content {
+  margin-top: 20px;  /*add a little extra space above the content section*/
+}
+
+.guide-section .purpose-of-questionnaire-section,
+.guide-section .functionality-of-tool-section,
+.guide-section .introduction-section,
+.guide-section .score-calculation-section,
+.guide-section .interpretation-section,
+.guide-section .additional-info-section,
+.guide-section .thank-you-section {
+  background-color: #f8f9fa;  /*lighter gray background color*/
+  border: 1px solid #dee2e6;  /*a thin light grey border around all sections*/
+  border-radius: 5px;  /*round the corners of all sections*/
+  margin-bottom: 20px; /*add a bit of space below each section*/
+  padding: 20px;  /*add some padding inside to create space inside each section*/
+}
+
+.guide-section h3 {
+  color: #007bff;  /*apply blue font color to headings in guides*/
+  margin-top: 0;   /*remove the top margin that is added by default*/
+}
+
+.guide-section p {
+  margin-bottom: 10px;  /*reduce the amount of space between paragraphs within guides*/
+}
+
+.guide-section ul {
+  padding-left: 20px;  /*add left padding so bullet points are indented nicely*/
+}
+
+.guide-section li {
+  list-style-type: disc;   /*make the bullet points actual bullets instead of numbers*/
+}
+

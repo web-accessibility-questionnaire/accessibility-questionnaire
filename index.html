@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- title of webpage -->
+<title>Accessibility Questionnaire Guide</title> <!--webpage title-->
+<!-- link to external CSS file for styling the page -->
+<link rel="stylesheet" href="Styles.css">
+</head>
+<body>
+  <nav class="navbar"> <!--Nav bar-->
+    <br>
+    <ul class="navbar-list"> <!--Unordered list for navigation links-->
+      <li><a href="index.html" class="guide-button">Guide</a></li> <!--Navigation link-->
+      <li><a href="AccessibilityQuestionnaire.html" class="accessibility-button">Accessibility Questions</a></li> <!--Navigation link-->
+    </ul>
+  </nav>
+  <br><br>
+  
+  <div class="guide-section"> <!--section for the guide content-->
+    <div class="container"> <!--container for the guide content-->
+      <h2>Accessibility Questionnaire Guide</h2> <!--heading-->
+      
+      <div class="guide-content"> <!--section for the guide content-->
+        <div class="introduction-section"> <!--section for intro-->
+          <h3>Introduction</h3> <!--subheading-->
+          <p>Welcome to the Accessibility Questionnaire Guide! This guide aims to provide you with information about how the questionnaire works and how your responses will be used to calculate the accessibility score of the website you are reviewing.</p> <!--paragraph-->
+        </div>
+
+        <div class="purpose-of-questionnaire-section"> <!--section for functionality overview-->
+          <h3>Purpose of Questionnaire</h3> <!--subheading-->
+          <p>The main purpose of this questionnaire is to provide website owners with insights into areas within their websites that require improvement. This tool also aims to encourage website owners to make informed decisions and implement necessary improvements to enhance the accessibility for the users who have low vision.<br><br> The questionnaire was designed to assess various aspects of website accessibility for the visually impaired. It covered aspects such as tracking, functionality of assistive technologies, brightness and colour. Each question in the questionnaire reflected the accessibility requirements for people with low vision developed by the World Wide Web Consortium <a href="https://www.w3.org/TR/low-vision-needs/#brightness-and-color">[W3C] (2016)</a>.</p>
+        </div>
+
+        <div class="functionality-of-tool-section"> <!--section for functionality overview-->
+            <h3> Overview of the Tool’s Functionality</h3> <!--subheading-->
+            <p>The questionnaire works as an interactive tool that provides guidance to website owners through an evaluation of their website’s accessibility features. The users will be provided a series of questions, each question requiring a simple ‘yes’ or ‘no’ as a response. Each question that was provided focused on a particular aspect of the accessibility requirements such as text alternatives for images or functionality of accessibility tools such as a screen reader. </p> 
+
+            <p>Once every question has been answered, the users receive an accessibility score out of 100 to show how compatible their website is with the accessibility requirements for people with low vision provided by The World Wide Web Consortium <a href="https://www.w3.org/TR/low-vision-needs/#brightness-and-color">[W3C] (2016)</a>. By taking this approach, it offers a clear and quantifiable measure of the website’s accessibility level for the visually impaired. </p>
+
+            <p>Moreover, the final accessibility score is categorised into four sections to show how accessible the website is for the visually impaired: </p>
+
+            <ul>
+                <li>0-40%: Poor accessibility.</li>
+                <li>41-60%: Fair accessibility.</li>
+                <li>61-80%: Good accessibility.</li>
+                <li>81-100%: Excellent accessibility.</li>
+            </ul>
+
+            <p>Once the accessibility score is calculated based on the responses, the questionnaire will then generate personalised recommendations specific to the areas that need improvement. For example, let’s say the user was asked a question “Can users change the font size of all text without zooming the entire interface?” and the user clicks ‘no’  in response to the question, the implemented tool will exclusively provide recommendations focusing on improving this aspect of the website. So, the tool will only provide guidance on those questions which the response was a ‘no’. </p>
+          </div>
+        
+        <div class="score-calculation-section">  <!--section explaining score calculation-->
+          <h3>Explanation of Score Calculation</h3>  <!--subheading-->
+          <p>In this section, an explanation will be given on how the final accessibility score of the website is calculated based on your responses to the questionnaire.</p>
+          <p>A simple scoring method is used in order to calculate the final accessibility score of the website. Each question within the questionnaire is assigned with a binary value of ‘1’ or ‘0’. For every response that is a ‘yes’ the user will be awarded 1 point, indicating that the specific aspect is compliant with the accessibility standards. Whereas, for every response that is a ‘no’, the user will not be awarded with any points and this indicates that this specific aspect is not compliant with the accessibility standards and needs improvement.</p>
+          <h4>Example</h4>  <!--subheading-->
+          <p>For instance, there are 15 questions within the questionnaire, the user responds ‘yes’ to 9 out of the 15 questions and ‘no’ to the remaining 6 questions. The way the final accessibility score will be calculated is as follows:</p>
+          <ul>
+            <li>Total points = 9 (points for ‘yes’ responses)</li>
+            <li>Total Possible points = 15 (total number of questions)</li>
+            <li>Final score = (9/15) * 100 = 60%</li>
+          </ul>
+          <p>This score provides an indication of the overall accessibility level of the website based on the criteria evaluated in the questionnaire.</p>
+        </div>
+        
+        <div class="interpretation-section">  <!--section explaning results interpretation-->
+          <h3>Interpretation of Results</h3>  <!--subheading-->
+          <p>Once you complete the questionnaire, you will receive an accessibility score along with recommendations for improving website accessibility. The score reflects the overall accessibility of the website for users with low vision. A higher score indicates better accessibility, while a lower score suggests areas that may require improvement.</p>
+        </div>
+        
+        <div class="additional-info-section">  <!--section for addirional info-->
+          <h3>Additional Information</h3>  <!--subheading-->
+          <ul>
+            <li>The questionnaire typically takes around 10-15 minutes to complete. However, this may differ depending on what website you are reviewing. </li>
+            <li>You will need a stable internet connection to submit your responses.</li>
+            <li>If you encounter any technical issues or have questions about the questionnaire, please email: contact.accessibility.researcher@gmail.com.</li>
+          </ul>
+        </div>
+        
+        <div class="thank-you-section">  <!--section for ackknowledgements-->
+          <h3>Thank You</h3>
+          <p>Thank you for participating in the Accessibility Questionnaire. Your feedback is valuable and will help improve website accessibility for users with low vision.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br><br>
+</body>
+</html>

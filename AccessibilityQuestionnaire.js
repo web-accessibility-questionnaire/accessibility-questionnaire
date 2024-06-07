@@ -1,18 +1,17 @@
-//defines function called calculateScore that calculates accessibility score.
-function calculateScore() { 
-    //gets the website link  entered by user and removes any extra spaces
-    const websiteLink = document.getElementById('websiteLink').value.trim();
-    //check if website link is empty
-    if (websiteLink === '') {
-        //if website link is empty then show alert.
+   //defines function to calculate the accessibility score based on user input
+function calculateScore() {
+    //gets the website link  entered by user ...https://www.w3schools.com/jsref/met_document_getelementbyid.asp
+    const websiteLink = document.getElementById('websiteLink').value;
+
+    //check if website link is empty, if empty then show alert..https://www.programmingcube.com/how-to-add-form-validation-for-empty-input-fields-with-javascript/
+    if (!websiteLink) {
         alert('Please enter a valid website link.');
         //exit function
         return;
     } 
-
+    
     var totalPoints = 0; // variable to store total points.
     var totalQuestions = 0; // variable to store total number of questions
-    var recommendationsArray = {}; // empty object to store recommendations in categories..
 
     // calculate score for brightness questions
     totalPoints += getPoints("Q1") + getPoints("Q2") + getPoints("Q3");
@@ -38,26 +37,34 @@ function calculateScore() {
     totalPoints += getPoints("Q13") + getPoints("Q14") + getPoints("Q15");
     totalQuestions += 3;
 
-    // calculate final accessibility score
-    var accessibilityScore = (totalPoints / totalQuestions) * 100;
+    // calculate final accessibility score... https://www.geeksforgeeks.org/design-a-student-grade-calculator-using-javascript/
+    let accessibilityScore = (totalPoints / totalQuestions) * 100;
+
+    //define funnction called getPoints- calculates points for specific questiion
+    // it has a parameter called 'questionNumber which specifies the question number
+    function getPoints(questionNumber) {
+    //retrieve value of the selected radio button associated with the questionNumber
+    var value = document.querySelector('input[name="' + questionNumber + '"]:checked').value;
+    // return 1 if the value is 'yes' otherwise return 0.
+    return value === "yes" ? 1 : 0;
+    }
 
     // categorise the accessibility score
-
     //variable to store the accessibility category.
     var accessibilityCategory;
 
-    //check the value of accessibilityScore to determine the accessibility category.
+    //check the value of accessibilityScore to determine the accessibility category...https://www.geeksforgeeks.org/design-a-student-grade-calculator-using-javascript/
 
     // if accessibilityScore is between 0 and 40 then set accessibility category to "poor accessibility."
     if (accessibilityScore >= 0 && accessibilityScore <= 40) {
         accessibilityCategory = "Poor accessibility";
 
     //if accessibilityScore is between 41 and 60 then set accessibility category to "fair accessibility."
-    } else if (accessibilityScore > 40 && accessibilityScore <= 60) {
+    } else if (accessibilityScore >= 40 && accessibilityScore <= 60) {
         accessibilityCategory = "Fair accessibility";
 
     //if accessibilityScore is between 60 and 80 then set accessibility category to "good accessibility."
-    } else if (accessibilityScore > 60 && accessibilityScore <= 80) {
+    } else if (accessibilityScore >= 60 && accessibilityScore <= 80) {
         accessibilityCategory = "Good accessibility";
     
     //if accessibilityScore is above 80 then set accessibility category to "excellent accessibility" 
@@ -67,12 +74,29 @@ function calculateScore() {
 
     // Display the final accessibility score
     var resultElement = document.getElementById("result");
-    
+    //HTML content for result and round final score to two decimal points
     resultElement.innerHTML = "<div class='score-box'><h4>Accessibility Score:</h4> <p>" + accessibilityScore.toFixed(2) + "</p></div>";
+    //HTML content for the accessibility category
     resultElement.innerHTML += "<div class='category-box'><p><strong>Accessibility Category:</strong> " + accessibilityCategory + "</p><br><br></div>";
 
 
-    // Display recommendations for each question with a "no" answer
+    // define function called displayRecommendation with parameters: questionNumber, recommendation, category, recommendationsArray and questionDescription
+    function displayRecommendations(questionNumber, recommendation, category, recommendationsArray, questionDescription) {
+    // retrive the value of the input of the radio button corresponding to question (YES OR NO)
+    var value = document.querySelector('input[name="' + questionNumber + '"]:checked').value;
+    //check if value = no
+    if (value === "no") {
+        //check if there are no recommendations stored for the specified catgeory in the recommendationsArray
+        if (!recommendationsArray[category]) {
+            //if there are no recommendations for the category then initialise an empty array.
+            recommendationsArray[category] = [];
+        }
+        // push new recommendation entry to recommendationArray under specified category
+        recommendationsArray[category].push(`${questionDescription}: ${recommendation}`);
+    }
+}
+    var recommendationsArray = {}; // empty object to store recommendations in categories..
+
     // Recommendatins for category 1- Brightness & Colour
     
    // Recommendations for Q1- Users must be able to change the overall brightness of a display.
@@ -95,7 +119,7 @@ function calculateScore() {
     // Recommendations for Q6- Hyphenation
     displayRecommendations("Q6", "For some people it is very difficult to understand words that are hyphenated (for example check-in), and they need to turn off hyphenation. While this is primarily an issue for people with cognitive impairments, hyphenation becomes more of an issue when text size is increased, thus it is also related to low vision. Some people with very large text may prefer hyphenation on so that more characters fit on a line of text. <br> <br> Users must be given an option to turn hyphenation on or off based on their preferences.", "Tracking", recommendationsArray, "Question 6");
 
-
+    
      // Recommendations for category 3- Perceiving 
 
     // Recommendations for Q7- Text Size
@@ -140,93 +164,66 @@ function calculateScore() {
     displayAllRecommendations(recommendationsArray);
 }
 
-//define funnction called getPoints- calculates points for specific questiion based on its name.
-// it has a parameter called 'questionName which specifies the name of question.
-function getPoints(questionName) {
-    //retrieve value of the checked input element with specified name and store it in  variable 'value'. 
-    var value = document.querySelector('input[name="' + questionName + '"]:checked').value;
-    // return 1 if the value is 'yes' otherwise return 0.
-    return value === "yes" ? 1 : 0;
-}
-
-// define function called displayRecommendation with parameters: questionNumber, recommendation, category, recommendationsArray and questionDescription
-function displayRecommendations(questionNumber, recommendation, category, recommendationsArray, questionDescription) {
-    // retrive the value of the input of the radio button corresponding to questionNumber
-    var value = document.querySelector('input[name="' + questionNumber + '"]:checked').value;
-    //check if value = no
-    if (value === "no") {
-        //check if there are no recommendations stored for the specified catgeory in the recommendationsArray
-        if (!recommendationsArray[category]) {
-            //if there are no recommendations for the category then initialise an empty array.
-            recommendationsArray[category] = [];
-        }
-        // push new recommendation entry to recommendationArray under specified category
-        recommendationsArray[category].push(`${questionDescription}: ${recommendation}`);
-    }
-}
 
 //define function called displayAllRecommendations with parameter called recommendationsArray.
 function displayAllRecommendations(recommendationsArray) {
-    // Retrieve the element with ID "recommendations" and store it in recommendationElement
+    //retrive the element with ID "recommendations" and store it in recomendationElement
     var recommendationElement = document.getElementById("recommendations");
 
-    // Clear any exisiting content within the recommendationElement
+    //clear any exisitng content within the recommendationElement
     recommendationElement.innerHTML = "";
 
-    // Add the Recommendations heading to the recommendationElement
-    recommendationElement.innerHTML += "<h4>Recommendations:</h4>";
+    //add recommendations heading to the recommendationElement
+    recommendationElement.innerHTML += "<h4>Based on your input these are some recommendations on what steps you can take to improve your websites accessibility for the visually impaired: :</h4>";
 
     // Iterate over each category in recommendationsArray
     for (var category in recommendationsArray) {
         //retrive array of  reccomendations for current category from recommendations
         var categoryRecommendations = recommendationsArray[category];
 
-        // If there are recommendations for this category
+        //if there are recommendations for this category
         if (categoryRecommendations.length > 0) {
-            // Add the category heading to recommendationElement
+            //add the category heading to recommendationElement
             recommendationElement.innerHTML += `<div class="category-heading">${category}:</div>`;
 
-            // Add the recommendation list as unordered list to recommendationElement
+            //add the recommendation list as unordered list to recommendationElement
             recommendationElement.innerHTML += "<ul>";
             //iterate over each recommendation in the categoryRecommendations array
             categoryRecommendations.forEach(function (recommendation) {
                 // add each recommendation as a list item with the class "recommendation-item" to the unordered list
                 recommendationElement.innerHTML += `<li class="recommendation-item">${recommendation}</li>`;
             });
-
-            // add a closing unordered list tag to the recommendationElement
-            recommendationElement.innerHTML += "</ul>";
         }
     }
 
-    //initlaise a boolean variable ismpty to true
-    var isEmpty = true;
-    // Iterate over each category in the recommendationsArray
+    //initlaise a boolean variable recommendationsIsEmpty to true
+    var recommendationsIsEmpty = true;
+    //iterate over each category in the recommendationsArray
     for (var category in recommendationsArray) {
-        // if the length of recommendations in the curent category is greater than 0
+        //if the length of recommendations in the curent category is greater than 0
         if (recommendationsArray[category].length > 0) {
-            // set isEmpty to false and exit the loop
-            isEmpty = false;
+            //set recommendationsIsEmpty to false and exit the loop
+            recommendationsIsEmpty = false;
             break;
         }
     }
     // Check if isEmpty is true
-    if (isEmpty) {
+    if (recommendationsIsEmpty) {
         // if true, display a mesage indicating no recommendations are present
         recommendationElement.innerHTML += "<p>No recommendations at this time. Your website is doing well in accessibility.</p>";
     }
     
 }
 
-// Add an event listner to the form to call calculateScore() when submitted
-document.getElementById("questionForm").addEventListener("submit", function(event) {
-    // Prevent the default form submission behavior
+    //add an event listner to the form to call calculateScore() when submitted..https://www.w3schools.com/jsref/event_preventdefault.asp
+    document.getElementById("questionForm").addEventListener("submit", function(event) {
+    //prevent the default form submission behavior
     event.preventDefault();
 
-    // Calculate the accessibility score and display recomendations
+    //calculate the accessibility score and display recomendations
     calculateScore();
 
-    // Set the value of the hidden input field with ID "accessibilityScore" to the accessibility score. round to 2 decimal places
+    //set the value of the hidden input field with ID "accessibilityScore" to the accessibility score. round to 2 decimal places
     document.getElementById("accessibilityScore").value = accessibilityScore.toFixed(2);
     /// convert the recomendationsArray object into a JSON string
     const myJSON = JSON.stringify(recommendationsArray);
@@ -235,14 +232,6 @@ document.getElementById("questionForm").addEventListener("submit", function(even
 
     // Submit the form
     this.submit();
-});
-
-// Add an event listener to the checkbox to enable/disable the "Send Results" button
-document.getElementById("consentCheckbox").addEventListener("change", function() {
-    // retrieve the sendResultsButton element by its ID
-    var sendResultsButton = document.getElementById("sendResultsButton");
-    // disable sendResultsButton if the consentCheckbox is unchecked, otherwise enable it..
-    sendResultsButton.disabled = !this.checked;
 });
 
 
@@ -256,14 +245,6 @@ document.getElementById("sendResultsButton").addEventListener("click", function(
         alert("Please consent to participate in the research.");
         return; // Exit the function if the checkbox is not checked
     }
-
-    //output form data to the console for debugging purposes
-    console.log("Form data:", {
-        //get value of accessibility score from the 'result' element and store it in the object
-        accessibilityScore: document.getElementById("result").value,
-        //get value of recommendations from the 'recommendations' element and store it in the object
-        recommendations: document.getElementById("recommendations").value
-    });
 
     // Submit the form
     document.getElementById("questionForm").submit();
